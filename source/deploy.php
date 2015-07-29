@@ -28,7 +28,6 @@ shell_exec('hexo config render_drafts false');
 shell_exec('hexo config public');
 
 echo shell_exec('hexo generate -f');
-echo shell_exec('rm -rf ../public');
 echo shell_exec('rm -rf ../public_html.bak');
 echo shell_exec('mv ../public_html ../public_html.bak');
 echo shell_exec('mv public ../public_html');
