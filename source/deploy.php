@@ -18,6 +18,7 @@ if ($hash !== $payload_hash) {
     header('HTTP/1.0 401 Unauthorized');
     die('401 Unauthorized');
 }
+header('Content-Type: text/plain');
 
 chdir('../repo');
 
@@ -27,7 +28,10 @@ shell_exec('git pull');
 shell_exec('hexo config render_drafts false');
 shell_exec('hexo config public');
 
-echo shell_exec('hexo generate -f');
-echo shell_exec('rm -rf ../public_html.bak');
-echo shell_exec('mv ../public_html ../public_html.bak');
-echo shell_exec('mv public ../public_html');
+echo $result = shell_exec('hexo generate -f');
+
+if (strpos($result, 'ERROR') === false) {
+    shell_exec('rm -rf ../public_html.bak');
+    shell_exec('mv ../public_html ../public_html.bak');
+    shell_exec('mv public ../public_html');
+}
