@@ -27,6 +27,7 @@ shell_exec('git pull');
 
 shell_exec('hexo config render_drafts false');
 shell_exec('hexo config public');
+shell_exec('hexo config url http://devhook.net');
 
 $result = shell_exec('hexo generate -f');
 

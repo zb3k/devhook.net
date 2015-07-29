@@ -1,25 +1,29 @@
-!=partial('_partial/header')
-//- aside
-//-     !=list_categories()
-.container
-    aside.sidebar
-        //- =console.log('//-----------------------------------------------------------------------------')
-        //- =console.log(page)
-        //- =page.category
-        //- if page.categories && page.categories.data
-        //-     = 'ok'
-        //-     = console.log(page.categories.map(function(item){return item.name}))
-        !=list_categories()
-        !=list_tags({orderby: 'length', order: 'desc'})
+<!DOCTYPE html>
+html(lang="ru")
+!=partial('_partial/head')
+body
+    !=partial('_partial/header')
+    //- aside
+    //-     !=list_categories()
+    .container
+        aside.sidebar
+            //- =console.log('//-----------------------------------------------------------------------------')
+            //- =console.log(page)
+            //- =page.category
+            //- if page.categories && page.categories.data
+            //-     = 'ok'
+            //-     = console.log(page.categories.map(function(item){return item.name}))
+            !=list_categories()
+            !=list_tags({orderby: 'length', order: 'desc'})
 
-    section.content.with-sidebar
-        !=body
-        if page.total > 1
-            .pagination
-                !=paginator({prev_text: 'Назад', next_text: 'Далее'})
+        section.content.with-sidebar
+            !=body
+            if page.total > 1
+                .pagination
+                    !=paginator({prev_text: 'Назад', next_text: 'Далее'})
 
-    if is_post()
-        !=partial('_partial/comments')
+        if is_post()
+            !=partial('_partial/comments')
 
-!=partial('_partial/footer')
-!=partial('_partial/comments_count')
+    !=partial('_partial/footer')
+    !=partial('_partial/comments_count')
