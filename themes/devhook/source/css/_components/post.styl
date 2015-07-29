@@ -71,6 +71,12 @@
             text-decoration none
             color           $grey-color
 
+            &:first-child:before
+                display none
+            &:before
+                content ' / '
+                opacity .5
+
         .post-comments
             font-weight bold
             &:before
