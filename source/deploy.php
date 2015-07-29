@@ -28,10 +28,14 @@ shell_exec('git pull');
 shell_exec('hexo config render_drafts false');
 shell_exec('hexo config public');
 
-echo $result = shell_exec('hexo generate -f');
+$result = shell_exec('hexo generate -f');
 
 if (strpos($result, 'ERROR') === false) {
     shell_exec('rm -rf ../public_html.bak');
     shell_exec('mv ../public_html ../public_html.bak');
     shell_exec('mv public ../public_html');
+} else {
+    header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
 }
+
+echo $result;
