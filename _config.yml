@@ -12,7 +12,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://devhook.dev
+url: /
 root: /
 permalink: blog/:title/
 permalink_defaults:
@@ -94,6 +94,9 @@ imagemin:
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
+  repo: https://github.com/zb3k/devhook.net
+  branch: master
+  # message:
 
 feed:
   type: atom
