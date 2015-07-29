@@ -1,0 +1,8 @@
+head
+    meta(charset="UTF-8")
+    title= page.title
+    link(rel="alternative" href=url_for(config.feed.path) title=config.title type="application/atom+xml")
+    link(rel="icon" type="image/png" href="/favicon.png")
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600&subset=latin,cyrillic-ext', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=PT+Serif&subset=latin,cyrillic,cyrillic-ext', rel='stylesheet', type='text/css')
+    !=css('css/style.css')
