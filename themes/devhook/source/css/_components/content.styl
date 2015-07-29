@@ -1,0 +1,10 @@
+section.content
+    background #FFF
+    box-shadow $base-box-shadow
+    padding    0 $base-spacing $base-spacing
+    position   relative
+    clearfix()
+
+    &.with-sidebar
+        width ($container-width - $sidebar-width - $base-spacing*3)
+        word-break break-all

@@ -1,0 +1,64 @@
+//-----------------------------------------------------------------------------
+// Common
+//-----------------------------------------------------------------------------
+
+html
+    font  100%/1.65 $base-font-family
+    color $base-text-color
+
+body
+    background-color $base-bg-color
+
+    // &:before
+    //     opacity             .1
+    //     content             ''
+    //     position            fixed
+    //     width               100%
+    //     height              100%
+    //     top                 0
+    //     left                0
+    //     background          url("../img/cover.jpg") fixed
+    //     background-size     cover
+    //     background-position 50% 50%
+
+h1
+    font  normal 230% $alt-font-family
+    color $header-text-color
+
+h2, .h2
+    margin 20px 0
+    font  normal 160% $alt-font-family
+    color $header-text-color
+
+h3
+    font  normal 120% $alt-font-family
+    // text-transform uppercase
+    color $header-text-color
+
+a
+    color $accent-color
+
+blockquote
+    padding    $small-spacing 0
+    margin     $base-spacing 0
+    font-style italic
+    position   relative
+    font-size  95%
+
+    &:after
+        content    ''
+        position   absolute
+        width      $tiny-spacing
+        top        0
+        height     100%
+        left       (- $base-spacing)
+        background $accent-color
+
+code
+    display          inline-block
+    font             90% $mono-font-family
+    vertical-align   middle
+    color            $dark-color
+    background-color $light-color
+    border-radius    3px
+    padding          0 $tiny-spacing

@@ -1,0 +1,19 @@
+.archive
+    - lastDate = null
+    if page.posts
+        each post in page.posts.sort('date', -1).data
+            -postDate = date(post.date, 'YYYY')
+            if postDate != lastDate
+                .h2=postDate
+            -lastDate = postDate
+
+            article.post
+                a(href=post.permalink).title: =post.title
+                .post-info
+                    if post.categories.length
+                        span.post-categories
+                            each cat in post.categories.data
+                                a(href=cat.permalink): =cat.name
+                    a(href=post.permalink+'#comments', data-disqus-url=post.permalink).post-comments.disqus-comment-count …
+                    .post-date=date(post.date, 'DD MMMM')
+

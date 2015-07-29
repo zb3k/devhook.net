@@ -1,0 +1,22 @@
+.blog
+    article.post.post-full
+
+        h1= page.title
+
+        .post-info
+            if page.categories.length
+                span.post-categories
+                    each cat in page.categories.data
+                        a(href=cat.permalink): =cat.name
+            a(href=page.permalink+'#comments', data-disqus-url=page.permalink).post-comments.disqus-comment-count …
+            .post-date=date(page.date)
+
+        if page.toc !== undefined
+            !=toc(page.content, {list_number: false})
+
+        !=page.content
+
+        if page.tags
+            ul.post-tags
+                each tag in page.tags.data
+                    li: a(href=tag.permalink): =tag.name

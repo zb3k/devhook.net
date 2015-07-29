@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+html(lang="ru")
+head
+    meta(charset="UTF-8")
+    title= page.title
+    link(rel="alternative" href=url_for(config.feed.path) title=config.title type="application/atom+xml")
+    link(rel="icon" type="image/png" href="/favicon.png")
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600&subset=latin,cyrillic-ext', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=PT+Serif&subset=latin,cyrillic,cyrillic-ext', rel='stylesheet', type='text/css')
+    !=css('css/style.css')
+body
+    header
+        .container
+            nav
+                a(href="/", class=is_home()?'active':'').logo Dev<span>Hook</span>
+                    //- =fragment_cache('header', function(){return site.posts.data.map(function(item){return item._content}).join('\n').split(/[^\w\d]+/i).length})
+                each link,title in theme.menu
+                    - isActive = link && is_current(link)
+                    a(href=url_for(link), class=isActive?'active':'')=title
+                each p in site.pages.filter(function(item){return item.menu == 'main'}).data
+                    - isActive = page.source == p.source
+                    a(href=url_for(p.permalink), class=isActive?'active':'')= p.title
+
+            //- !=search_form()

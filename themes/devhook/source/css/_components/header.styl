@@ -1,0 +1,61 @@
+header
+    background    #FFF
+    height        $header-height
+    margin-bottom $base-spacing
+    position      relative
+    box-shadow    $base-box-shadow
+
+    nav
+        float left
+        clearfix()
+
+        a
+            display         block
+            text-decoration none
+            float           left
+            font-size       90%
+            margin-left     $base-spacing
+            height          $header-height
+            line-height     $header-height
+            transition      all .15s
+            color           $dark-color
+            &:hover
+                color $accent-color
+
+            &.active
+                display  block
+                color    $grey-color
+                position relative
+
+                $size = $ui-active-dot-size
+                &:before
+                &:after
+                    content       ''
+                    position      absolute
+                    size          $size
+                    border-radius 100%
+                    left          50%
+                    bottom        ceil(- $size/2 - 1)
+                    margin-left   round(- $size/2)
+                    background    $base-bg-color
+                    box-shadow    inset $base-box-shadow
+
+                &:after
+                    $size            = ceil($size/2+1)
+                    size             $size
+                    bottom           ceil(- $size/2 - 1)
+                    margin-left      round(- $size/2)
+                    background-color #FFF
+                    box-shadow       $base-box-shadow
+
+            &.logo
+                text-decoration none
+                height          $header-height
+                font            normal 150% $alt-font-family
+                line-height     $header-height
+                color           $dark-color
+                display         block
+                margin 0
+                span
+                    color   $grey-color
+                    display inline-block
