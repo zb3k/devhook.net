@@ -21,6 +21,9 @@ if ($hash !== $payload_hash) {
 
 chdir('../repo');
 
+shell_exec('git reset --hard');
+shell_exec('git pull');
+
 shell_exec('hexo config render_drafts false');
 shell_exec('hexo config public');
 
