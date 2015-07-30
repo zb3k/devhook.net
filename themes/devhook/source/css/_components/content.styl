@@ -5,5 +5,16 @@ section.content
     position   relative
     clearfix()
 
-    &.with-sidebar
+    &.archive
+        background none
+        padding 0
+        box-shadow none
+
+        .with-sidebar &
+            width ($container-width - $sidebar-width - $base-spacing)
+
+        > *:first-child
+            margin-top 0
+
+    .with-sidebar &
         width ($container-width - $sidebar-width - $base-spacing*3)

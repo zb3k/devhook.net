@@ -1,15 +1,8 @@
 if site.posts
-    .blog
+    section.content.blog
         each post in page.posts.sort('date', -1).data
             article.post
                 h2: a(href=post.permalink): =post.title
 
-                .post-info
-                    if post.categories.length
-                        span.post-categories
-                            each cat in post.categories.data
-                                a(href=cat.permalink): =cat.name
-                    a(href=post.permalink+'#comments', data-disqus-url=post.permalink).post-comments.disqus-comment-count …
-                    .post-date=date(post.date)
-
+                !=partial('_partial/post_info', {post: post})
                 .post-notice!=post.excerpt

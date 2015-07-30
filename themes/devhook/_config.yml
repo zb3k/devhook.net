@@ -3,8 +3,12 @@ menu:
   Archives: archives/
 
 footer_menu:
-  ToDo: /todo/
-  GitHub: https://github.com/zb3k/devhook.net
+  ToDo:
+    icon: fa fa-road fa-lg
+    link: /todo/
+  GitHub:
+    icon: fa fa-github fa-lg
+    link: https://github.com/zb3k/devhook.net
 
 # rss: /atom.xml
 

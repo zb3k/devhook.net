@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 html(lang="ru")
 !=partial('_partial/head')
-body
+body.with-sidebar
     !=partial('_partial/header')
     //- aside
     //-     !=list_categories()
@@ -16,11 +16,10 @@ body
             !=list_categories()
             !=list_tags({orderby: 'length', order: 'desc'})
 
-        section.content.with-sidebar
-            !=body
-            if page.total > 1
-                .pagination
-                    !=paginator({prev_text: 'Назад', next_text: 'Далее'})
+        !=body
+        if page.total > 1
+            .pagination
+                !=paginator({prev_text: 'Назад', next_text: 'Далее'})
 
         if is_post()
             !=partial('_partial/comments')

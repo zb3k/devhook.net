@@ -10,4 +10,4 @@ header
                 - isActive = page.source == p.source
                 a(href=url_for(p.permalink), class=isActive?'active':'')= p.title
 
-        //- !=search_form()
+        !=search_form({text: 'Поиск', button: false})

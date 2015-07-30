@@ -59,3 +59,27 @@ header
                 span
                     color   $grey-color
                     display inline-block
+
+    .search-form
+        float      right
+        margin-top 15px
+
+        .search-form-input
+            box-shadow    inset $base-box-shadow
+            border        1px solid #0002
+            border-radius 100px
+            padding       3px
+            margin        0
+            width         ($sidebar-width - 4)
+            display       block
+            transition    all .2s
+            outline       none
+            opacity       0.5
+            font-size     90%
+            font-family   $base-font-family
+
+            &:hover
+                opacity 1
+            &:focus
+                opacity 1
+                width $sidebar-width * 2

@@ -1,4 +1,4 @@
-.archive
+section.content.archive
     - lastDate = null
     if page.posts
         each post in page.posts.sort('date', -1).data
@@ -9,11 +9,4 @@
 
             article.post
                 a(href=post.permalink).title: =post.title
-                .post-info
-                    if post.categories.length
-                        span.post-categories
-                            each cat in post.categories.data
-                                a(href=cat.permalink): =cat.name
-                    a(href=post.permalink+'#comments', data-disqus-url=post.permalink).post-comments.disqus-comment-count …
-                    .post-date=date(post.date, 'DD MMMM')
-
+                !=partial('_partial/post_info', {post: post})

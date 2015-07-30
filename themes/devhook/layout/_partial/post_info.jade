@@ -1,0 +1,12 @@
+.post-info
+    if post.categories.length
+        span.post-categories
+            i.fa.fa-folder
+            each cat in post.categories.data
+                a(href=cat.permalink): =cat.name
+    a(href=post.permalink+'#comments')
+        i.fa.fa-comment
+        span(data-disqus-url=post.permalink).post-comments.disqus-comment-count …
+    .post-date
+        i.fa.fa-calendar-o
+        =date(post.date)

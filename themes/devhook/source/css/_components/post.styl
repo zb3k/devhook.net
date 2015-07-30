@@ -46,20 +46,27 @@
         margin-bottom  20px
     .post-info
         > *
-            font-size       75%
-            line-height     160%
+            font-size       87%
+            //              line-height     160%
             display         inline-block
             background      $base-bg-color
-            padding         0 $small-spacing
+            padding         3px $small-spacing
             text-decoration none
-            border-left     2px solid $grey-color
+            //              border-left     2px solid $grey-color
             color           $grey-color
             margin-right    10px
-
+            text-align      left
+        .fa
+            color        #555
+            // text-indent  0.2px
+            margin-right 5px
         > a
         .post-categories
             border-color $accent-color
-            transition background .15s
+            transition background .15s, color .15s
+
+            *
+                transition color .15s
 
             &:hover
                 background $accent-color
@@ -117,19 +124,33 @@
             padding-top 0
 
         .post-info
-            margin-top -20px
+            margin-top -15px
         // .post-date
         //     display block
 
 
     .archive &
-        border-top 1px solid $base-bg-color
-        padding    5px 0
+        // border-top 1px solid $base-bg-color
+        padding 10px
+        margin 0 0 10px 0
+        background #FFF
+        box-shadow $base-box-shadow
 
         .title
             text-decoration none
+            &:hover
+                text-decoration underline
 
-        // .post-date
+        .post-info
+            > *
+                padding      0 5px
+                font-size    80%
+                margin-right 5px
+
+            .post-date
+                float right
+            .post-comments:before
+                display none
         //     width      70px
         //     text-align right
 
