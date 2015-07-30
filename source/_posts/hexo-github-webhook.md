@@ -103,7 +103,7 @@ shell_exec('hexo config url http://devhook.net');
 // Пытаемся сгенерировать статичный сайт
 $result = shell_exec('hexo generate -f');
 
-// Если небыло ошибок то сохраняем текущий сайт в public_html.bak
+// Если не было ошибок то сохраняем текущий сайт в public_html.bak
 // и публикуем свежую версию
 if (strpos($result, 'ERROR') === false) {
     shell_exec('rm -rf ../public_html.bak');

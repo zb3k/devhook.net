@@ -1,6 +1,6 @@
 <?php
 
-// Файл с секретной фразой (Secret) заданной в настройках вебхуков
+// Файл с секретной фразой (Secret) заданной в настройках вебхука github
 $secret = file_get_contents('../.github_secret');
 
 // Получаем хэш-подпись и название алгоритма шифрования
@@ -36,7 +36,7 @@ shell_exec('hexo config url http://devhook.net');
 // Пытаемся сгенерировать статичный сайт
 $result = shell_exec('hexo generate -f');
 
-// Если небыло ошибок то сохраняем текущий сайт в public_html.bak
+// Если не было ошибок то сохраняем текущий сайт в public_html.bak
 // и публикуем свежую версию
 if (strpos($result, 'ERROR') === false) {
     shell_exec('rm -rf ../public_html.bak');
