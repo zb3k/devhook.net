@@ -1,0 +1,21 @@
+{
+  "excludeFiles": [
+    ".git",
+    "node_modules",
+    "scaffolds",
+    "public"
+  ],
+  "lang": "ru",
+  "fileExtensions": [".md", ".jade"],
+  "ignoreUrls": true,
+  "findRepeatWords": true,
+  "ignoreLatin": true,
+  "dictionary": [
+    "гитхабе",
+    "гитхабу",
+    "коммит",
+    "коммита",
+    "поддомен",
+    "хостится"
+  ]
+}
