@@ -1,6 +1,6 @@
 <?php
 
-// Файл с секретной фразой (Secret) заданной в настройках вебхука github
+// Файл с секретной фразой (Secret) заданной в настройках веб хука github
 $secret = file_get_contents('../.github_secret');
 
 // Получаем хэш-подпись и название алгоритма шифрования
@@ -29,7 +29,7 @@ shell_exec('git reset --hard');
 shell_exec('git pull');
 
 // Устанавливаем необходимые настройки hexo
-shell_exec('hexo config render_drafts false'); // не редерить черновики
+shell_exec('hexo config render_drafts false'); // не рендерить черновики
 shell_exec('hexo config public');
 shell_exec('hexo config url http://devhook.net');
 
