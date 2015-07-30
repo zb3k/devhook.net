@@ -5,7 +5,7 @@ rss: /atom.xml
 
 # Content
 # excerpt_link: Read More
-# toc: true
+src: true
 
 # Sidebar
 # sidebar: right
