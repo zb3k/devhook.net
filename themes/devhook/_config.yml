@@ -1,7 +1,12 @@
 # Header
 menu:
   Archives: archives/
-rss: /atom.xml
+
+footer_menu:
+  ToDo: /todo/
+  GitHub: https://github.com/zb3k/devhook.net
+
+# rss: /atom.xml
 
 # Content
 # excerpt_link: Read More
