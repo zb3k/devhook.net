@@ -17,4 +17,4 @@
                 each tag in page.tags.data
                     li: a(href=tag.permalink): =tag.name
 
-    !=partial('partial/comments')
+    !=partial('partial/comments', {identifier: page.slug})
