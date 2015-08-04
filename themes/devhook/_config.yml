@@ -1,20 +1,22 @@
 # Header
-menu:
-  Archives: archives/
+# menu:
+#   Блог:    blog/
+#   Архив:   archives/
+#   Проекты: projects/
 
 footer_menu:
-  ToDo:
-    icon: fa fa-road fa-lg
-    link: /todo/
-  GitHub:
-    icon: fa fa-github fa-lg
-    link: https://github.com/zb3k/devhook.net
+  GitHub:  https://github.com/zb3k/devhook.net
+  Roadmap: /todo/
+  UI:      /ui/
+
+
+lang: ru
 
 # rss: /atom.xml
 
 # Content
 # excerpt_link: Read More
-src: true
+# src: true
 
 # Sidebar
 # sidebar: right

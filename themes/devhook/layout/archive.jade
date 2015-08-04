@@ -1,12 +1,13 @@
-section.content.archive
-    - lastDate = null
-    if page.posts
-        each post in page.posts.sort('date', -1).data
-            -postDate = date(post.date, 'YYYY')
-            if postDate != lastDate
-                .h2=postDate
-            -lastDate = postDate
+if page.posts
+    .archive
+        .container
+            - lastDate = null
+            each post in page.posts.sort('date', -1).data
+                -postDate = date(post.date, 'YYYY')
+                if postDate != lastDate
+                    .h2=postDate
+                -lastDate = postDate
 
-            article.post
-                a(href=post.permalink).title: =post.title
-                !=partial('_partial/post_info', {post: post})
+                article.post
+                    a(href=post.permalink).title: =post.title
+                    !=partial('partial/post-info', {post: post})

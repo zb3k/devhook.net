@@ -1,0 +1,10 @@
+a(href=post.permalink+'#comments' data-disqus-url=post.permalink).btn.accent-dark.disqus-comment-count …
+
+//- a.btn.accent DEV
+
+if post.categories.length
+    .btn-group
+        each cat,index in post.categories.data
+            a(href=cat.permalink class="btn accent"+(index||post.categories.data.length===1?'-light':''))= cat.name
+
+span.btn.light= date(post.date)

@@ -1,0 +1,428 @@
+@import 'nib'
+// @import 'jeet'
+// @import 'rupture'
+
+//-----------------------------------------------------------------------------
+
+$font-family        = 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
+$header-font-family = 'PT Serif Caption', 'Lucida Bright', Georgia, serif
+$code-font-family   = 'Monaco', monospace
+$code-font-size     = 14px
+$code-line-height   = 24px
+
+$accent-light = #60CBB3
+$accent       = #459C89
+$accent-dark  = #313D50
+$dark         = #4A4A4A
+$grey         = #707675
+$light        = #D7DEDD
+$white        = #FFF
+
+// $container-size     = 1140px
+$container-size     = 980px
+$navbar-size        = 100px
+$footer-size        = $navbar-size
+$splash-screen-size = 250px
+$splash-logo-size   = $navbar-size
+
+$spacing-tiny  = 5px
+$spacing-small = 10px
+$spacing       = 20px
+$spacing-large = 40px
+
+$line-height = 30px
+$header-size = 33px
+
+$h-sizes = $header-size,      //h1
+    ceil($header-size * 0.8), //h2
+    ceil($header-size * 0.7), //h3
+    ceil($header-size * 0.6), //h4
+    ceil($header-size * 0.5), //h5
+    ceil($header-size * 0.45) //h6
+
+
+//-----------------------------------------------------------------------------
+// BASE
+//-----------------------------------------------------------------------------
+
+normalize-base()
+
+html
+    height         100%
+body
+    height      100%
+    background  $white
+    font-family $font-family
+    color       $dark
+    box-sizing  border-box
+    position    relative
+    line-height $line-height
+
+// Headers
+h1,h2,h3,h4,h5,h6
+    font-family $header-font-family
+    color       $accent-dark
+    margin      $spacing-large 0 $spacing
+    line-height 1.4em
+
+    a
+        text-decoration none
+        color           $accent-dark
+
+for s,i in $h-sizes
+    h{i+1}
+        font-size s
+
+h4,h5,h6
+    text-transform uppercase
+    margin         $spacing 0 $spacing-small
+
+a
+    color      $accent
+    transition color .2s
+
+    &:hover
+        color $accent-light
+p
+    margin $spacing 0
+
+img
+    max-width 100%
+    height    auto
+    display   block
+    margin    $spacing auto
+
+hr
+    margin $spacing-large 0
+    border $light
+
+blockquote
+    padding     0 $spacing
+    margin      0
+    border-left $spacing-tiny solid $grey
+    font-style italic
+    color $grey
+    clearfix()
+    p
+        margin $spacing-small 0
+
+code
+    font-family $code-font-family
+    font-size   $code-font-size
+    line-height $code-line-height
+    display     inline-block
+    background  lighten($light, 7)
+    box-shadow  inset 0 0 0 1px #0001
+    padding     0 $spacing-tiny
+    color       $accent-dark
+
+table
+    border-collapse collapse
+    font-size       .9em
+    border          1px solid $light
+
+    td,th
+        border 1px solid $light
+        border-width 1px 0
+        padding $spacing-small $spacing
+
+    th
+        font-weight   bold
+        background    lighten($light, 10)
+        color         $grey
+        border-bottom 2px solid $grey
+
+.accent-light
+    background-color $accent-light
+.accent
+    background-color $accent
+.accent-dark
+    background-color $accent-dark
+.dark
+    background-color $dark
+.grey
+    background-color $grey
+.light
+    background-color $light
+
+//-----------------------------------------------------------------------------
+// LAYOUT
+//-----------------------------------------------------------------------------
+
+#wrapper
+    min-height     100%
+    position       relative
+    padding-bottom ($footer-size + $spacing)
+    box-sizing     border-box
+    clearfix()
+
+.container
+    max-width $container-size
+    margin    0 auto
+
+
+//-----------------------------------------------------------------------------
+// BUTTONS
+//-----------------------------------------------------------------------------
+
+.btn-group
+.btn
+    display      inline-block
+    margin-right $spacing-tiny
+
+.btn
+    padding         0 $spacing-small
+    color           $white
+    font-size       0.90em
+    transition      opacity .15s
+    text-decoration none
+
+a.btn:hover
+    color   $white
+    cursor  pointer
+    opacity .85
+
+.btn-group > *
+        margin     0
+        box-shadow inset -1px 0 0 #0001
+
+        &:last-child
+
+            box-shadow none
+
+//-----------------------------------------------------------------------------
+// HEADER
+//-----------------------------------------------------------------------------
+
+header
+    // margin-bottom $spacing
+    // height $navbar-size + $splash-screen-size
+    clearfix()
+
+    .navbar
+        height $navbar-size
+
+    .navbar-header
+        float       left
+        line-height ($navbar-size - 2)
+
+        *
+            vertical-align  middle
+            font            $header-size $header-font-family
+            text-decoration none
+            color           $accent-dark
+
+    nav
+        float       right
+        line-height $navbar-size
+
+        a
+            text-transform  uppercase
+            text-decoration none
+            color           $accent-dark
+            padding         $spacing-small $spacing
+            transition      background .15s, color .2s
+
+            &:hover
+                background-color $accent-light
+                color            $white
+
+    .splash-screen
+        background-color mix($accent, $accent-dark, 40)
+        height           $splash-screen-size
+        position         relative
+        overflow         hidden
+
+        .splash-screen-image
+            background                 url("../images/splash-001.jpg")
+            opacity                    0.7
+            background-size            cover
+            background-position        50% 70%
+            size                       100% $splash-screen-size
+            absolute                   bottom left
+            // transition                 transform .2s, opacity .2s
+            // transition-timing-function ease-in-out
+
+        .logo svg
+            size                       $splash-logo-size
+            absolute                   top 50% left 50%
+            margin                     ceil(- @height/2) 0 0 ceil(- @width/2)
+
+        a.logo svg
+            transition                 transform .2s
+            transition-timing-function ease-in-out
+
+            &:hover
+                transform scale(1.5)
+            // .splash-screen-image
+        //         transform scale(1.05)
+        //         opacity .5
+
+//-----------------------------------------------------------------------------
+// FOOTER
+//-----------------------------------------------------------------------------
+
+footer
+    background-color $light
+    size             100% $footer-size
+    font-size        .8em
+    absolute         bottom 0 left 0
+
+
+    *
+        color $grey
+
+    nav
+        line-height  $footer-size
+
+        a
+            line-height     $line-height
+            display         inline-block
+            padding         $spacing-tiny $spacing-small
+            text-decoration none
+            transition      background .15s, color .2s
+
+            &:hover
+                background-color darken($light, 15)
+                color            $white
+
+//-----------------------------------------------------------------------------
+// CONTENT
+//-----------------------------------------------------------------------------
+
+#content
+    margin $spacing-large 0
+
+    img
+        padding       $spacing-small
+        border        2px solid $light
+        box-sizing    border-box
+
+    .post
+        margin         $spacing-large 0
+        padding-bottom $spacing
+        border-bottom  1px solid $light
+
+        &:last-child
+            padding 0
+            border  none
+
+//-----------------------------------------------------------------------------
+// COMMENTS
+//-----------------------------------------------------------------------------
+
+#comments
+    margin     $spacing-large 0 (- $spacing - $spacing-large)
+    padding    0 0 $spacing 0
+    background lighten($light, 10)
+    border-top 1px solid $light
+    min-height 200px
+    overflow()
+
+//-----------------------------------------------------------------------------
+// HIGHLIGHT
+//-----------------------------------------------------------------------------
+
+.highlight
+.highlight table
+pre > code
+    -webkit-font-smoothing subpixel-antialiased
+    font-family            $code-font-family
+    font-size              $code-font-size
+    line-height            $code-line-height
+    display                block
+    background             $accent-dark
+    margin                 0
+    padding                0
+    color                  lighten($light, 10)
+    overflow-x             auto
+    text-size-adjust       none
+
+.highlight .code
+.highlight .gutter
+pre > code
+    padding $spacing $spacing
+
+.highlight
+    table,tr,td,th
+        border none
+        padding 0
+        background none
+
+    pre
+        margin 0
+    .gutter
+        color        mix($accent-dark, $light, 70)
+        text-align   right
+        border-right 1px solid #0002
+        padding      $spacing-small
+    .code
+        padding-left $spacing
+    .comment
+        // color #969896
+        color lighten($grey, 5)
+
+    .variable,
+    .attribute,
+    .tag,
+    .regexp,
+    .ruby .constant,
+    .xml .tag .title,
+    .xml .pi,
+    .xml .doctype,
+    .html .doctype,
+    .css .id,
+    .css .class,
+    .css .pseudo
+        color #cc6666
+
+    .number,
+    .preprocessor,
+    .pragma,
+    .built_in,
+    .literal,
+    .params,
+    .constant
+        color #de935f
+
+    .ruby .class .title,
+    .css .rule .attribute
+        color #f0c674
+
+    .string,
+    .value,
+    .inheritance,
+    .header,
+    .name,
+    .ruby .symbol,
+    .xml .cdata
+        // color #b5bd68
+        color mix($accent-light, #999, 50)
+
+    .title,
+    .css .hexcolor
+        color #8abeb7
+
+    .function,
+    .python .decorator,
+    .python .title,
+    .ruby .function .title,
+    .ruby .title .keyword,
+    .perl .sub,
+    .javascript .title,
+    .coffeescript .title
+        color #81a2be
+
+    .keyword,
+    .javascript .function
+        color #b294bb
+
+    .coffeescript .javascript,
+    .javascript .xml,
+    .tex .formula,
+    .xml .javascript,
+    .xml .vbscript,
+    .xml .css,
+    .xml .cdata
+        opacity 0.5
+

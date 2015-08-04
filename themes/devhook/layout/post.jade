@@ -1,12 +1,14 @@
-section.content.blog.post-full
-    article.post.post-full
+.post
+    .container
+        //- section.content.blog.post-full
+        //- article.post.post-full
 
         h1= page.title
 
-        !=partial('_partial/post_info', {post: page})
+        !=partial('partial/post-info', {post: page})
 
-        if page.toc !== undefined
-            !=toc(page.content, {list_number: false})
+        //- if page.toc !== undefined
+        //-     !=toc(page.content, {list_number: false})
 
         !=page.content
 
@@ -14,3 +16,5 @@ section.content.blog.post-full
             ul.post-tags
                 each tag in page.tags.data
                     li: a(href=tag.permalink): =tag.name
+
+    !=partial('partial/comments')

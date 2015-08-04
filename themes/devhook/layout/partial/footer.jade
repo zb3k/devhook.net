@@ -1,13 +1,12 @@
 footer
     .container
-        .copy 15 © Devhook
-        .links
+        nav
             each link,title in theme.footer_menu
-                if link.icon
-                    a(href=link.link): i(class=link.icon)
-                else
-                    a(href=link)!= title
+                a(href=link)!= title
 
-//- COUNTERS
+//- Disqus (comment count)
+script var disqus_shortname="devhook";!function(e){var t=e.createElement("script");t.async=!0,t.type="text/javascript",t.src="//"+disqus_shortname+".disqus.com/count.js",(e.getElementsByTagName("HEAD")[0]||e.getElementsByTagName("BODY")[0]).appendChild(t)}(document);
+
+//- Yandex.Metrika
 script !function(e,t,a){(t[a]=t[a]||[]).push(function(){try{t.yaCounter31511383=new Ya.Metrika({id:31511383,clickmap:!0,trackLinks:!0,accurateTrackBounce:!0})}catch(e){}});var c=e.getElementsByTagName("script")[0],n=e.createElement("script"),r=function(){c.parentNode.insertBefore(n,c)};n.type="text/javascript",n.async=!0,n.src="https://mc.yandex.ru/metrika/watch.js","[object Opera]"==t.opera?e.addEventListener("DOMContentLoaded",r,!1):r()}(document,window,"yandex_metrika_callbacks");
-noscript: div: img(src="https://mc.yandex.ru/watch/31511383" style="position:absolute; left:-9999px;" alt="")
+noscript: div: img(src="https://mc.yandex.ru/watch/31511383" style="position:absolute; left:-9999px;")

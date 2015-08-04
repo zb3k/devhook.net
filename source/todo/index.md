@@ -1,19 +1,26 @@
 ---
-title: ToDo
+title: Site roadmap
 date: 2015-07-30 16:44:59
 ---
-Template:
- ☐ Favicon
- ☐ Архив
- ☐ Тэги
- ☐ Проставить корректные заголовки
- ☐ Media queries
- ☐ Список категорий в виде дерева
- ☐ Список категорий и тегов используя jade
 
-Projects:
- ☐ HEXO plugin for emojy
+##### Template:
 
-＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
-Archive:
- ✔ Поиск @done (30.07.2015 18:55)
+- Favicon
+- Архив
+- Постраничная разбивка
+- Тэги
+- Media queries
+- Список категорий в виде дерева
+- ~~Проставить корректные заголовки~~
+
+##### Projects:
+
+- HEXO plugin for yaspeller
+- ~~HEXO plugin for emojy~~ `@canceled`
+
+
+## History
+
+##### 2015.07.30
+
+![](/data/roadmap/2015-07-30.png)

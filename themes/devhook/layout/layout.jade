@@ -1,28 +1,15 @@
-<!DOCTYPE html>
-html(lang="ru")
-!=partial('_partial/head')
-body.with-sidebar
-    !=partial('_partial/header')
-    //- aside
-    //-     !=list_categories()
-    .container
-        aside.sidebar
-            //- =console.log('//-----------------------------------------------------------------------------')
-            //- =console.log(page)
-            //- =page.category
-            //- if page.categories && page.categories.data
-            //-     = 'ok'
-            //-     = console.log(page.categories.map(function(item){return item.name}))
-            !=list_categories()
-            !=list_tags({orderby: 'length', order: 'desc'})
+doctype html
+html(lang=theme.lang)
+    head
+        meta(charset="UTF-8")
+        title= page.title + ' | ' + config.title
 
-        !=body
-        if page.total > 1
-            .pagination
-                !=paginator({prev_text: 'Назад', next_text: 'Далее'})
+        link(rel="alternate" href=url_for(config.feed.path) title=config.title type="application/atom+xml")
+        link(rel="icon" type="image/png" href="/favicon.png")
+        !=css('assets/css/style.css')
+    body
 
-        if is_post()
-            !=partial('_partial/comments')
-
-    !=partial('_partial/footer')
-    !=partial('_partial/comments_count')
+        #wrapper
+            !=partial('partial/header')
+            #content!=body
+            !=partial('partial/footer')

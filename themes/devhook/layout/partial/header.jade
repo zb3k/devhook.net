@@ -1,0 +1,15 @@
+header
+
+    .navbar
+        .container
+            .navbar-header: a(href='/')= config.title
+
+            if theme.menu
+                nav
+                    each link, title in theme.menu
+                        - isActive = link && is_current(link)
+                        a(href=url_for(link), class=isActive?'active':'')=title
+
+    .splash-screen
+        .splash-screen-image
+        a(href='/').logo!=partial('partial/logo-svg')

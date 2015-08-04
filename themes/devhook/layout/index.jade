@@ -1,8 +1,9 @@
 if site.posts
-    section.content.blog
-        each post in page.posts.sort('date', -1).data
-            article.post
+    each post in page.posts.sort('date', -1).data
+        .post
+            .container
                 h2: a(href=post.permalink): =post.title
 
-                !=partial('_partial/post_info', {post: post})
+                !=partial('partial/post-info', {post: post})
+
                 .post-notice!=post.excerpt
